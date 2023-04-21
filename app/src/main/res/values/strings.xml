@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">CineReview</string>
+    <string-array name="genres">
+        <item></item>
+        <item>Ação</item>
+        <item>Aventura</item>
+        <item>Comédia</item>
+        <item>Romance</item>
+        <item>Suspense</item>
+        <item>Terror</item>
+    </string-array>
 </resources>

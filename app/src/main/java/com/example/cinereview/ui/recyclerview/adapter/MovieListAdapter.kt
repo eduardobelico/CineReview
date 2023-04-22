@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cinereview.databinding.MovieCardBinding
+import com.example.cinereview.extensions.formatMinsToHour
 import com.example.cinereview.extensions.loadImage
 import com.example.cinereview.model.Movie
 
@@ -26,7 +27,7 @@ class MovieListAdapter(
                 movieCardName.text = movie.name
                 movieCardGenreOne.text = movie.genreOne
                 movieCardGenreTwo.text = movie.genreTwo
-                movieCardDuration.text = movie.duration.toString()
+                movieCardDuration.text = movie.duration.formatMinsToHour()
                 movieCardRating.text = movie.rating.toString()
             }
         }

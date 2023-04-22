@@ -10,7 +10,7 @@ data class Movie(
     val name: String,
     val genreOne: String,
     val genreTwo: String,
-    val duration: Int,
+    val duration: Long,
     val description: String,
     val review: String,
     val rating: Double,

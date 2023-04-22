@@ -88,13 +88,12 @@
             android:id="@+id/movie_card_rating"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:maxLines="1"
             android:textColor="#009688"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/movie_card_image"
             app:layout_constraintStart_toStartOf="@id/movie_card_name"
-            tools:text="@tools:sample/lorem/random" />
+            tools:text="XXXXXX" />
 
         <ImageView
             android:id="@+id/movie_card_rating_image"
@@ -102,7 +101,6 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_rating_image_star"
             app:layout_constraintBottom_toBottomOf="@id/movie_card_image"
-            app:layout_constraintEnd_toEndOf="@id/movie_card_name"
             app:layout_constraintStart_toEndOf="@id/movie_card_rating" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,12 +1,13 @@
 package com.example.cinereview.ui.activity
 
 import android.os.Bundle
-import android.view.View
-import android.widget.AdapterView
-import android.widget.AdapterView.OnItemSelectedListener
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.cinereview.database.AppDatabase
 import com.example.cinereview.databinding.ActivityMovieFormBinding
+import com.example.cinereview.extensions.validadeRating
+import com.example.cinereview.extensions.validateDuration
+import com.example.cinereview.extensions.validateGenre
 import com.example.cinereview.model.Movie
 
 
@@ -26,49 +27,15 @@ class MovieFormActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-//        setSpinnerOne()
-//        setSpinnerTwo()
         setSaveButton()
     }
-
-//    private fun setSpinnerOne() {
-//        binding.activityMovieFormGenreFirstSpinner.onItemSelectedListener =
-//            object : OnItemSelectedListener {
-//                override fun onItemSelected(
-//                    adapterView: AdapterView<*>?,
-//                    view: View?,
-//                    position: Int,
-//                    spinnerId: Long
-//                ) {
-//
-//                }
-//
-//                override fun onNothingSelected(p0: AdapterView<*>?) {
-//
-//                }
-//            }
-//    }
-//
-//    private fun setSpinnerTwo() {
-//        binding.activityMovieFormGenreSecondSpinner.onItemSelectedListener =
-//            object : OnItemSelectedListener {
-//                override fun onItemSelected(
-//                    adapterView: AdapterView<*>?,
-//                    view: View?,
-//                    position: Int,
-//                    spinnerId: Long
-//                ) {
-//                }
-//                override fun onNothingSelected(p0: AdapterView<*>?) {
-//                }
-//            }
-//    }
 
     private fun setSaveButton() {
         val saveButton = binding.activityMovieFormSaveButton
 
         saveButton.setOnClickListener {
             val newMovie = createMovie()
+            Log.e("TAG", "setSaveButton: ${newMovie.genreOne}  ${newMovie.genreTwo}")
                 movieDao.saveMovie(newMovie)
                 finish()
         }
@@ -76,22 +43,16 @@ class MovieFormActivity : AppCompatActivity() {
 
     private fun createMovie(): Movie {
         val name =  binding.activityMovieFormName.text.toString()
-        val genreOne = binding.activityMovieFormGenreFirstSpinner.selectedItem.toString()
-        val genreTwo = binding.activityMovieFormGenreSecondSpinner.selectedItem.toString()
+        val genreOneField = binding.activityMovieFormGenreFirstSpinner.selectedItem.toString()
+        val genreOne = genreOneField.validateGenre()
+        val genreTwoField = binding.activityMovieFormGenreSecondSpinner.selectedItem.toString()
+        val genreTwo = genreTwoField.validateGenre()
         val durationToText = binding.activityMovieFormDuration.text.toString()
-        val duration = if (durationToText.isBlank()){
-            0
-        } else {
-           durationToText.toInt()
-        }
+        val duration = durationToText.validateDuration()
         val description = binding.activityMovieFormDescription.text.toString()
         val review = binding.activityMovieFormReview.text.toString()
         val ratingToText = binding.activityMovieFormRating.text.toString()
-        val rating = if (ratingToText.isBlank()){
-            0.0
-        } else {
-            ratingToText.toDouble()
-        }
+        val rating = ratingToText.validadeRating()
 
         return Movie(
             id = movieId,

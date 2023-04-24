@@ -12,10 +12,9 @@ fun ImageView.loadImage(url: String? = null) {
         visible()
 
         load(url) {
-            fallback(R.drawable.erro)
+            crossfade(1000)
             error(R.drawable.erro)
             placeholder(R.drawable.erro)
-            crossfade(1000)
         }
     } else visibilityGone()
 }

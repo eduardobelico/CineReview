@@ -4,14 +4,13 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.cinereview.database.dao.MovieDao
 import com.example.cinereview.databinding.MovieCardBinding
 import com.example.cinereview.extensions.formatMinsToHour
 import com.example.cinereview.extensions.loadImage
 import com.example.cinereview.model.Movie
 
-class MovieListAdapter(
-    context: Context
-) : RecyclerView.Adapter<MovieListAdapter.MovieViewHolder>() {
+class MovieListAdapter() : RecyclerView.Adapter<MovieListAdapter.MovieViewHolder>() {
 
     private val movieList = mutableListOf<Movie>()
 
@@ -23,7 +22,7 @@ class MovieListAdapter(
         fun bindView(movie: Movie) {
             this.movie = movie
             with(binding) {
-                movieCardImage.loadImage()
+                movieCardImage.loadImage(movie.image)
                 movieCardName.text = movie.name
                 movieCardGenreOne.text = movie.genreOne
                 movieCardGenreTwo.text = movie.genreTwo
@@ -31,6 +30,14 @@ class MovieListAdapter(
                 movieCardRating.text = movie.rating.toString()
             }
         }
+    }
+
+    fun getItem(position: Int): Movie {
+        return movieList[position]
+    }
+
+    fun excludeItem(position: Int) {
+        movieList.removeAt(position)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {

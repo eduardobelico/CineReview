@@ -2,14 +2,17 @@ package com.example.cinereview.ui.activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.RecyclerView
 import com.example.cinereview.database.AppDatabase
 import com.example.cinereview.databinding.ActivityMovieListBinding
 import com.example.cinereview.ui.recyclerview.adapter.MovieListAdapter
 
 class MovieListActivity : AppCompatActivity() {
 
-    private val adapter = MovieListAdapter(context = this@MovieListActivity)
+    private val adapter = MovieListAdapter()
     private val binding by lazy {
         ActivityMovieListBinding.inflate(layoutInflater)
     }
@@ -33,7 +36,26 @@ class MovieListActivity : AppCompatActivity() {
 
     private fun setRecyclerView() {
         val recyclerView = binding.activityMovieListRecyclerView
-            recyclerView.adapter = adapter
+        recyclerView.adapter = adapter
+        val itemTouchHelper = ItemTouchHelper(object :
+            ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean {
+                return false
+            }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                val position = viewHolder.bindingAdapterPosition
+                val movieToDelete = adapter.getItem(position)
+                adapter.excludeItem(position)
+                adapter.notifyItemRemoved(viewHolder.bindingAdapterPosition)
+                movieDao.removeMovie(movieToDelete)
+            }
+        })
+        itemTouchHelper.attachToRecyclerView(recyclerView)
     }
 
     private fun setFab() {

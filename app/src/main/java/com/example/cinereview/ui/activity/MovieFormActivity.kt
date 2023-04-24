@@ -1,14 +1,15 @@
 package com.example.cinereview.ui.activity
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.cinereview.database.AppDatabase
 import com.example.cinereview.databinding.ActivityMovieFormBinding
+import com.example.cinereview.extensions.loadImage
 import com.example.cinereview.extensions.validadeRating
 import com.example.cinereview.extensions.validateDuration
 import com.example.cinereview.extensions.validateGenre
 import com.example.cinereview.model.Movie
+import com.example.cinereview.ui.dialog.MovieFormImageDialog
 
 
 class MovieFormActivity : AppCompatActivity() {
@@ -28,6 +29,14 @@ class MovieFormActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         setSaveButton()
+        title = "Adicionar Filme"
+        binding.activityMovieFormImage.setOnClickListener() {
+            MovieFormImageDialog(this)
+                .showDialog(url) { image ->
+                    url = image
+                    binding.activityMovieFormImage.loadImage(url)
+                }
+        }
     }
 
     private fun setSaveButton() {
@@ -35,7 +44,6 @@ class MovieFormActivity : AppCompatActivity() {
 
         saveButton.setOnClickListener {
             val newMovie = createMovie()
-            Log.e("TAG", "setSaveButton: ${newMovie.genreOne}  ${newMovie.genreTwo}")
                 movieDao.saveMovie(newMovie)
                 finish()
         }

@@ -1,13 +1,13 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="Theme.CineReview" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.CineReview" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimary">@color/middle_yellow_red</item>
+        <item name="colorPrimaryVariant">@color/peru</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorSecondary">@color/medium_turquoise</item>
+        <item name="colorSecondaryVariant">@color/medium_turquoise</item>
         <item name="colorOnSecondary">@color/white</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
@@ -16,4 +16,24 @@
             @font/montserrat
         </item>
     </style>
+
+    <style name="Theme.CineReview.ActionBar" parent="Theme.CineReview">
+        <item name="windowActionBar">true</item>
+        <item name="windowNoTitle">false</item>
+<!--        <item name="titleTextColor">@color/white</item>-->
+<!--        <item name="subtitleTextColor">@color/white</item>-->
+    </style>
+
+    <style name="Theme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="actionBarStyle">@style/ActionBarStyle</item>
+    </style>
+
+    <style name="ActionBarStyle" parent="Theme.MaterialComponents.Light.NoActionBar" >
+        <item name="android:titleTextStyle">@style/ActionBarTitle</item>
+    </style>
+
+    <style name="ActionBarTitle" parent="Theme.CineReview.ActionBar">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
 </resources>

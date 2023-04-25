@@ -14,9 +14,9 @@ fun ImageView.loadImage(url: String? = null) {
         load(url) {
             crossfade(1000)
             error(R.drawable.erro)
-            placeholder(R.drawable.erro)
+            placeholder(R.drawable.placeholder)
         }
-    } else visibilityGone()
+    } else R.drawable.paint
 }
 
 fun View.visible() {
@@ -36,6 +36,11 @@ fun Long.formatMinsToHour(): String {
         Duration.ofMinutes(this)
     )
     return "$movieHours h"
+}
+
+fun String.validadeYear(): Long {
+    return if (this.isBlank()) 0L
+    else this.toLong()
 }
 
 fun String.validateDuration(): Long {

@@ -1,12 +1,48 @@
 <resources>
     <string name="app_name">CineReview</string>
+
+    <string name="name_tag">Título:</string>
+    <string name="ano_tag">Ano:</string>
+    <string name="duracao_tag">Duração:</string>
+    <string name="generos_tag">Gêneros:</string>
+    <string name="nota_tag">Nota:</string>
+    <string name="name_hint">Filme</string>
+    <string name="ano_hint">Ano</string>
+    <string name="duracao_hint">Duração (mins)</string>
+    <string name="nota_hint">Nota (0–5)</string>
+    <string name="ficha_tecnica">Ficha Técnica</string>
+    <string name="sinopse">Sinopse</string>
+    <string name="review">Review</string>
+    <string name="titulo">Título</string>
+    <string name="url_imagem">URL da imagem</string>
+    <string name="pesquisar">Pesquisar</string>
+    <string name="remover">Remover</string>
+    <string name="editar">Editar</string>
+    <string name="salvar">SALVAR</string>
+    <string name="carregar">CARREGAR</string>
+
     <string-array name="genres">
         <item>-----</item>
         <item>Ação</item>
         <item>Aventura</item>
+        <item>Biográfico</item>
+        <item>Cinema de arte</item>
+        <item>Chanchada</item>
         <item>Comédia</item>
+        <item>Dança</item>
+        <item>Documentário</item>
+        <item>Drama</item>
+        <item>Espionagem</item>
+        <item>Fantasia</item>
+        <item>Faroeste</item>
+        <item>Ficção Científica</item>
+        <item>Guerra</item>
+        <item>Histórico</item>
+        <item>Musical</item>
+        <item>Policial</item>
         <item>Romance</item>
         <item>Suspense</item>
         <item>Terror</item>
+        <item>Thriller</item>
     </string-array>
 </resources>

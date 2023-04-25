@@ -39,7 +39,7 @@
                 android:id="@+id/activity_movie_form_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Filme"
+                android:hint="@string/name_hint"
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -66,7 +66,7 @@
             app:layout_constraintTop_toBottomOf="@id/activity_movie_form_name_textImputLayout" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/activity_movie_form_duration_textImputLayout"
+            android:id="@+id/activity_movie_form_year_textImputLayout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -76,10 +76,28 @@
             app:layout_constraintTop_toBottomOf="@id/activity_movie_form_genre_first_spinner">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/activity_movie_form_year"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/ano_hint"
+                android:inputType="number" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/activity_movie_form_duration_textImputLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/activity_movie_form_year_textImputLayout">
+
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/activity_movie_form_duration"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Duração (mins)"
+                android:hint="@string/duracao_hint"
                 android:inputType="number" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -97,7 +115,7 @@
                 android:id="@+id/activity_movie_form_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Sinopse"
+                android:hint="@string/sinopse"
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -115,7 +133,7 @@
                 android:id="@+id/activity_movie_form_review"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Review"
+                android:hint="@string/review"
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -133,7 +151,7 @@
                 android:id="@+id/activity_movie_form_rating"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Nota (0-5)"
+                android:hint="@string/nota_hint"
                 android:inputType="numberDecimal" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -142,7 +160,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:text="SALVAR"
+            android:text="@string/salvar"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

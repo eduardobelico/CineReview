@@ -4,13 +4,15 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.cinereview.database.dao.MovieDao
 import com.example.cinereview.databinding.MovieCardBinding
 import com.example.cinereview.extensions.formatMinsToHour
 import com.example.cinereview.extensions.loadImage
 import com.example.cinereview.model.Movie
 
-class MovieListAdapter() : RecyclerView.Adapter<MovieListAdapter.MovieViewHolder>() {
+class MovieListAdapter(
+    val context: Context,
+    var clickOnMovie: (movie: Movie) -> Unit = {}
+    ) : RecyclerView.Adapter<MovieListAdapter.MovieViewHolder>() {
 
     private val movieList = mutableListOf<Movie>()
 
@@ -30,14 +32,14 @@ class MovieListAdapter() : RecyclerView.Adapter<MovieListAdapter.MovieViewHolder
                 movieCardRating.text = movie.rating.toString()
             }
         }
-    }
 
-    fun getItem(position: Int): Movie {
-        return movieList[position]
-    }
-
-    fun excludeItem(position: Int) {
-        movieList.removeAt(position)
+        init {
+            itemView.setOnClickListener {
+                if (::movie.isInitialized) {
+                    clickOnMovie(movie)
+                }
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
@@ -57,5 +59,13 @@ class MovieListAdapter() : RecyclerView.Adapter<MovieListAdapter.MovieViewHolder
         movieList.clear()
         movieList.addAll(newMovieList)
         notifyItemInserted(newMovieList.size)
+    }
+
+    fun getItem(position: Int): Movie {
+        return movieList[position]
+    }
+
+    fun excludeItem(position: Int) {
+        movieList.removeAt(position)
     }
 }

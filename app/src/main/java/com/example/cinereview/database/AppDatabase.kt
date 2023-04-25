@@ -8,8 +8,9 @@ import com.example.cinereview.database.dao.MovieDao
 import com.example.cinereview.model.Movie
 
 @Database(entities = [Movie::class], version = 1, exportSchema = true)
-//@TypeConverters(Converters::class)
+
 abstract class AppDatabase : RoomDatabase() {
+
     abstract fun movieDao(): MovieDao
 
     companion object {

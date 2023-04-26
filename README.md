@@ -14,7 +14,7 @@ O app CineReview tem a finalidade de criar uma lista e adicionar comentários ao
 `Editar filmes` <br>
 `Remover filmes` <br>
 `Pesquisar por filmes pelo nome` <br>
-`Abrir card dos filmes para ver o conteúdo dele cada um` <br>
+`Abrir card dos filmes para ver o conteúdo de cada um` <br>
 
 ## Técnicas e tecnologias utilizadas
 

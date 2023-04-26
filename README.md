@@ -34,4 +34,4 @@ Open an Existing Project (ou alguma opção similar) Procure o local onde o proj
 
 ## Showcase do aplicativo
 
-https://user-images.githubusercontent.com/116230274/234679890-53e24068-a2b6-4623-a31d-546d22bc6c21.mp4
+https://user-images.githubusercontent.com/116230274/234706412-1ce0b7b7-7efa-4c55-8915-32dde81ed656.mp4

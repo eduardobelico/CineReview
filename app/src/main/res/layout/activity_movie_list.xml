@@ -8,6 +8,16 @@
     android:layout_height="match_parent"
     android:background="@color/floral_white">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_main_activity"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/middle_yellow_red"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/activity_movie_list_recyclerView"
         android:layout_width="0dp"
@@ -17,7 +27,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_main_activity"
         app:spanCount="2"
         tools:listitem="@layout/movie_card" />
 

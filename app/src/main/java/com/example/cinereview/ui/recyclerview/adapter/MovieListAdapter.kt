@@ -12,7 +12,7 @@ import com.example.cinereview.model.Movie
 class MovieListAdapter(
     val context: Context,
     var clickOnMovie: (movie: Movie) -> Unit = {}
-    ) : RecyclerView.Adapter<MovieListAdapter.MovieViewHolder>() {
+) : RecyclerView.Adapter<MovieListAdapter.MovieViewHolder>() {
 
     private val movieList = mutableListOf<Movie>()
 

@@ -48,12 +48,12 @@ fun String.validateDuration(): Long {
     else this.toLong()
 }
 
-fun String.validateGenre(): String{
-    return if(this == "-----") ""
+fun String.validateGenre(): String {
+    return if (this == "-----") ""
     else this
 }
 
-fun String.validadeRating(): Double{
-    return if(this.isBlank()) 0.0
+fun String.validadeRating(): Double {
+    return if (this.isBlank()) 0.0
     else this.toDouble()
 }

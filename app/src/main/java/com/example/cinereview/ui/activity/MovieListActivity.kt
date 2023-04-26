@@ -17,7 +17,6 @@ import com.google.android.material.snackbar.Snackbar
 class MovieListActivity : AppCompatActivity(),
     SearchView.OnQueryTextListener {
 
-
     private val binding by lazy {
         ActivityMovieListBinding.inflate(layoutInflater)
     }
@@ -31,6 +30,8 @@ class MovieListActivity : AppCompatActivity(),
         setContentView(binding.root)
         setRecyclerView()
         setFab()
+        setSupportActionBar(binding.toolbarMainActivity)
+
     }
 
     override fun onResume() {

@@ -17,23 +17,4 @@
         </item>
     </style>
 
-    <style name="Theme.CineReview.ActionBar" parent="Theme.CineReview">
-        <item name="windowActionBar">true</item>
-        <item name="windowNoTitle">false</item>
-<!--        <item name="titleTextColor">@color/white</item>-->
-<!--        <item name="subtitleTextColor">@color/white</item>-->
-    </style>
-
-    <style name="Theme" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="actionBarStyle">@style/ActionBarStyle</item>
-    </style>
-
-    <style name="ActionBarStyle" parent="Theme.MaterialComponents.Light.NoActionBar" >
-        <item name="android:titleTextStyle">@style/ActionBarTitle</item>
-    </style>
-
-    <style name="ActionBarTitle" parent="Theme.CineReview.ActionBar">
-        <item name="android:textColor">@color/white</item>
-    </style>
-
 </resources>

@@ -9,7 +9,6 @@ import com.example.cinereview.extensions.*
 import com.example.cinereview.model.Movie
 import com.example.cinereview.ui.dialog.MovieFormImageDialog
 
-
 class MovieFormActivity : AppCompatActivity() {
 
     private val binding by lazy {
@@ -72,13 +71,13 @@ class MovieFormActivity : AppCompatActivity() {
 
         saveButton.setOnClickListener {
             val newMovie = createMovie()
-                movieDao.saveMovie(newMovie)
-                finish()
+            movieDao.saveMovie(newMovie)
+            finish()
         }
     }
 
     private fun createMovie(): Movie {
-        val name =  binding.activityMovieFormName.text.toString()
+        val name = binding.activityMovieFormName.text.toString()
         val genreOneField = binding.activityMovieFormGenreFirstSpinner.selectedItem.toString()
         val genreOne = genreOneField.validateGenre()
         val genreTwoField = binding.activityMovieFormGenreSecondSpinner.selectedItem.toString()
@@ -105,6 +104,5 @@ class MovieFormActivity : AppCompatActivity() {
             image = url
         )
     }
-
 
 }

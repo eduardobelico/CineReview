@@ -9,7 +9,7 @@ interface MovieDao {
     fun searchMovie(): List<Movie>
 
     @Query("SELECT * FROM Movie WHERE id = :id")
-    fun searchById(id: Long) : Movie?
+    fun searchById(id: Long): Movie?
 
     @Query("SELECT * FROM Movie WHERE name LIKE :searchQuery")
     fun searchMovieName(searchQuery: String): List<Movie>
